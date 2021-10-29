@@ -1,46 +1,135 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Documentación
 
-## Available Scripts
 
-In the project directory, you can run:
+I.- Typescript 4.5
 
-### `yarn start`
+1 de octubre de 2012 por microsoft, multiplataforma, influido por javascript -> 9 años
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+https://www.typescriptlang.org/
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Instalar dependencias 
 
-### `yarn test`
+Comandos:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+npm install -g typescript    <-- Instalación
+tsc -v         				 <-- obtener versión
+tsc --init  				 <-- Iniciar typescript
+npx ts-node index.ts  	     <-- Ejecutar archivo
+tsc -w -p .  				 <-- hacer build
+```
 
-### `yarn build`
+II.- Typescript con React
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Prerequisitos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Node >= 8.0 ( Instalar binario recomendado, no últimas carácteristicas porque arroja bugs con typescript -> https://nodejs.org/en/ ) 
+2. Visual Studio Code
+3. yarn install -g   			
+4. Git
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Instalaciones recomendadas:
+ES7 React-Redux
+ESLint
+Git Graph
+Tabnine
 
-### `yarn eject`
+Crear Proyecto
+npx create-react-app my-app --template typescript
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+https://github.com/cgonzalezm1234/react-giftexpertapp
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Crear modelo de json a typescript
+http://json2ts.com/
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ESLint
+yarn add eslint --dev
+npm i -g eslint
+eslint --init
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Código fuente del proyecto
+https://github.com/cgonzalezm1234/react-typescript
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+----
+
+Fuentes:
+
+* https://www.typescriptlang.org/
+
+* Using TypeScript with Create React App
+https://reactjs.org/docs/static-type-checking.html#using-typescript-with-create-react-app
+
+* TypeScript - Guía completa y manual de mano (Fernando Herrera)
+https://www.youtube.com/watch?v=FufR-Vailzk&list=PLCKuOXG0bPi2J-C0WPRZdHTG6pareIvV2
+
+* React+TypeScript (Fernando Herrera)
+https://www.youtube.com/watch?v=dNxaP_BTtwQ&list=PLCKuOXG0bPi26-eawizqyLOgM7j66H_4M
+
+* React & Typescript, Ejemplo Práctico sencillo (Fazt)
+https://www.youtube.com/watch?v=IbJFERe9F9w
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        
+        setInputValue(e.target.value);
+    }
+
+    const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if( inputValue.trim().length > 2 ){
+            setCategories( (cats: any) => [ inputValue, ...cats ] );
+            setInputValue('');
+        }
+    }
+
+
+
+
+    {
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest/globals": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "jest"
+    ],
+    "rules": {
+    }
+}
